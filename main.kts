@@ -5,8 +5,25 @@ println("UW Complex Kotlin homework")
 // use fold to compress the array of strings down into a single string
 // the final string should look like FIZZBUZZFIZZFIZZBUZZFIZZFIZZBUZZ
 //
-val mapFoldResults = ""
 
+// fizzbuzz function
+fun fizzbuzz (num: Int): String {
+    var ret: String = ""
+    if (num % 3 == 0) {
+        ret += "FIZZ"
+    }
+    if (num % 5 == 0) {
+        ret += "BUZZ"
+    }
+    return ret
+}
+
+
+val numRange: List<Int> = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
+
+var fb: List<String> = numRange.map ({fizzbuzz(it)}
+
+val mapFoldResults: String = fb.fold("", {first, second -> first + second})
 
 // This is a utility function for your use as you choose, and as an
 // example of an extension method
