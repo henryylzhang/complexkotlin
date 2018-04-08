@@ -6,6 +6,7 @@ println("UW Complex Kotlin homework")
 // the final string should look like FIZZBUZZFIZZFIZZBUZZFIZZFIZZBUZZ
 //
 
+/* Part 1 */
 // fizzbuzz function
 fun fizzbuzz (num: Int): String {
     var ret: String = ""
@@ -21,10 +22,14 @@ fun fizzbuzz (num: Int): String {
 
 val numRange: List<Int> = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
 
-var fb: List<String> = numRange.map ({fizzbuzz(it)}
+var fb: List<String> = numRange.map({fizzbuzz(it)})
 
 val mapFoldResults: String = fb.fold("", {first, second -> first + second})
 
+/* End Part 1 */
+
+
+/* Part 2 */
 // This is a utility function for your use as you choose, and as an
 // example of an extension method
 fun Int.times(block: () -> Unit): Unit {
@@ -43,10 +48,17 @@ val r2_message = "wooga"
 val r2 = "" // call process() with message "FOO" and a block that upper-cases 
             // r2_message, and repeats it three times with no spaces: "WOOGAWOOGAWOOGA"
 
+/* End Part 2 */
 
+
+/* Part 3 */
 // write an enum-based state machine between talking and thinking
 enum class Philosopher { }
 
+/* End Part 3 */
+
+
+/* Part 4 */
 // create an class "Command" that can be used as a function (provide an "invoke()" function)
 // that takes a single parameter ("message" of type String)
 // primary constructor should take a String argument ("prompt")
@@ -54,6 +66,7 @@ enum class Philosopher { }
 class Command(val prompt: String) {
 }
 
+/* End Part 4 */
 
 
 
