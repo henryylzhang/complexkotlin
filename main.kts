@@ -14,8 +14,7 @@ val mapFoldResults = (1..15).map({
 		it % 5 == 0 -> "BUZZ"
 		else -> ""
 	}
-}).fold("",{first, second -> first + second})
-//println(mapFoldResults)
+}).fold("", { first, second -> first + second })
 
 /* End Part 1 */
 
@@ -35,12 +34,12 @@ fun process(message: String, block: (String) -> String): String {
 }
 
 // call process() with message "FOO" and a block that returns "BAR"
-val r1 = process("FOO", {"BAR"}) 
+val r1 = process("FOO", { "BAR" }) 
 
 // call process() with message "FOO" and a block that upper-cases
 // r2_message, and repeats it three times with no spaces: "WOOGAWOOGAWOOGA"
 val r2_message = "wooga"
-val r2 = process("FOO", {r2_message.toUpperCase().repeat(3)}) 
+val r2 = process("FOO", { r2_message.toUpperCase().repeat(3) }) 
 
 /* End Part 2 */
 
