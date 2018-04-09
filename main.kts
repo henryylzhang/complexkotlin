@@ -7,24 +7,15 @@ println("UW Complex Kotlin homework")
 //
 
 /* Part 1 */
-// fizzbuzz function
-fun fizzbuzz (num: Int): String {
-    var ret: String = ""
-    if (num % 3 == 0) {
-        ret += "FIZZ"
-    }
-    if (num % 5 == 0) {
-        ret += "BUZZ"
-    }
-    return ret
-}
-
-
-val numRange: List<Int> = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
-
-var fb: List<String> = numRange.map({fizzbuzz(it)})
-
-val mapFoldResults: String = fb.fold("", {first, second -> first + second})
+val mapFoldResults = (1..15).map({
+	when {
+		it % 15 == 0 -> "FIZZBUZZ"
+		it % 3 == 0 -> "FIZZ"
+		it % 5 == 0 -> "BUZZ"
+		else -> ""
+	}
+}).fold("",{first, second -> first + second})
+//println(mapFoldResults)
 
 /* End Part 1 */
 
