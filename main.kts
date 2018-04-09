@@ -92,6 +92,9 @@ enum class Philosopher {
 // primary constructor should take a String argument ("prompt")
 // when called, the Command object should return a String containing the prompt and then the message
 class Command(val prompt: String) {
+	operator fun invoke(message: String): String {
+		return prompt + message
+	}
 }
 
 /* End Part 4 */
@@ -116,10 +119,10 @@ print("Seneca, talk! ")
 seneca = seneca.signal()
 println(if (seneca.toString() == "Allow me to suggest an idea...") "." else "!")
 
-// print("Command tests: ")
-// print(if (Command("")("") == "") "." else "!")
-// print(if (Command("> ")("Hello!") == "> Hello!") "." else "!")
-// println("")
+print("Command tests: ")
+print(if (Command("")("") == "") "." else "!")
+print(if (Command("> ")("Hello!") == "> Hello!") "." else "!")
+println("")
 
 
 
