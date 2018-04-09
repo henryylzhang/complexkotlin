@@ -65,7 +65,23 @@ val r2 = process("FOO", {r2_message.toUpperCase().repeat(3)})
  * End Extra Credit */
 
 // write an enum-based state machine between talking and thinking
-enum class Philosopher { }
+enum class Philosopher { 
+	THINKING {
+		override fun signal() = TALKING
+		override fun toString(): String {
+			return "Deep thoughts...."
+		}
+	},
+	
+	TALKING {
+		override fun signal() = THINKING
+		override fun toString(): String {
+			return "Allow me to suggest an idea..."
+		}
+	};
+
+	abstract fun signal(): Philosopher
+}
 
 /* End Part 3 */
 
@@ -89,16 +105,16 @@ println("r1 test: " + if (r1 == ">>> FOO: {BAR}") "." else "!")
 
 println("r2 test: " + if (r2 == ">>> FOO: {WOOGAWOOGAWOOGA}") "." else "!")
 
-// var seneca = Philosopher.THINKING
-// print("Seneca, talk! ")
-// seneca = seneca.signal()
-// println(if (seneca.toString() == "Allow me to suggest an idea...") "." else "!")
-// print("Seneca, think! ")
-// seneca = seneca.signal()
-// println(if (seneca.toString() == "Deep thoughts....") "." else "!")
-// print("Seneca, talk! ")
-// seneca = seneca.signal()
-// println(if (seneca.toString() == "Allow me to suggest an idea...") "." else "!")
+var seneca = Philosopher.THINKING
+print("Seneca, talk! ")
+seneca = seneca.signal()
+println(if (seneca.toString() == "Allow me to suggest an idea...") "." else "!")
+print("Seneca, think! ")
+seneca = seneca.signal()
+println(if (seneca.toString() == "Deep thoughts....") "." else "!")
+print("Seneca, talk! ")
+seneca = seneca.signal()
+println(if (seneca.toString() == "Allow me to suggest an idea...") "." else "!")
 
 // print("Command tests: ")
 // print(if (Command("")("") == "") "." else "!")
